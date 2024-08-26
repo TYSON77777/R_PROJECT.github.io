@@ -5,8 +5,8 @@ Welcome to the **Rapper Introduction Slider **! This dynamic web application, bu
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6f316fb7-a481-4894-a7e2-5fd951e34af0" alt="Intro Slider Image" width="300"/>
 </p>
-<p align="center">
-  🔗 **[Check out the live project here](https://tyson77777.github.io/R_PROJECT.github.io/)** 🎧
+<p>
+  🔗 **[Check out the live project here](https://tyson77777.github.io/R_PROJECT.github.io/)** 
 </p>
 
 ## 🌟 **Features**:
