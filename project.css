@@ -1,248 +1,191 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+/* Define CSS variables for reusability */
+:root {
+  --primary-bg: #081b29;
+  --secondary-bg: #112e42;
+  --text-color: #ededed;
+  --accent-color: #00abf0;
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-    margin: 0;
-    background-color: #000;
-    color: #eee;
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
+  font-family: var(--font-family);
+  background: var(--primary-bg);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-a {
-    text-decoration: none;
+/* Container for consistent layout */
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-header {
-    width: 100%;
-    max-width: 1140px;
-    margin: auto;
-    padding: 0 5%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    position: relative;
-    z-index: 100;
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
 }
 
-header a {
-    color: #eee;
-    margin-right: 20px;
+.logo {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.carousel {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
-    margin-top: -50px;
+.navbar a {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  margin-left: 2rem;
+  transition: color 0.3s ease;
 }
 
-.carousel .list .item {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
+.navbar a:hover,
+.navbar a.active {
+  color: var(--accent-color);
 }
 
-.carousel .list .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Home Section */
+.home {
+  display: flex;
+  align-items: center;
+  padding: 5rem 0;
+  min-height: 100vh;
 }
 
-.carousel .list .item .content {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-right: 20%;
-    max-width: 90%;
-    color: #f6f9f7;
-    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-    font-size: 15px;
+.home-content {
+  max-width: 600px;
 }
 
-.carousel .list .item .author {
-    font-weight: bold;
-    letter-spacing: 5px;
+.home-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.carousel .list .item .title,
-.carousel .list .item .topic {
-    font-weight: bold;
-    line-height: 1.3em;
+.home-content h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--accent-color);
+  margin: 1rem 0;
 }
 
-.carousel .list .item .topic {
-    color: red;
-    font-size: 4em;
+.home-content p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin: 1.5rem 0;
 }
 
-.carousel .list .item .buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 130px);
-    grid-template-rows: 40px;
-    gap: 5px;
-    margin-top: 20px;
+.btn-box {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-color);
+  color: var(--primary-bg);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
 }
 
-.carousel .list .item .buttons button {
-    border: none;
-    background-color: #eee;
-    letter-spacing: 3px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+.btn-box:hover {
+  background: #0088cc;
 }
 
-.carousel .list .item .buttons button:nth-child(2) {
-    background-color: transparent;
-    border: 1px solid #eff1ef;
-    color: #13fe75;
+/* Social Media Icons */
+.social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  margin: 1.5rem 0.5rem 0 0;
+  transition: all 0.3s ease;
 }
 
-.thumbnail {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 100;
+.social-media a:hover {
+  background: var(--accent-color);
+  color: var(--primary-bg);
 }
 
-.thumbnail .item {
-    width: 100px;
-    height: 150px;
-    flex-shrink: 0;
-    position: relative;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .navbar {
+    display: none; /* Hide navbar on mobile, could add a hamburger menu */
+  }
+
+  .home {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .home-content {
+    max-width: 100%;
+  }
+
+  .home-content h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+
+  .home-content h3 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  }
+
+  .home-content p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+
+  .btn-box {
+    padding: 0.5rem 1rem;
+  }
+
+  .social-media a {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+  }
 }
 
-.thumbnail .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+  }
 
-.arrows {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    z-index: 100;
-}
+  .home-content h1 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+  }
 
-.arrows button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(9, 3, 3, 0.267);
-    border: none;
-    color: #04fd4b;
-    transition: .5s;
-}
-
-.arrows button:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-.carousel .list .item:nth-child(1) .content .title,
-.carousel .list .item:nth-child(1) .content .topic {
-    font-size: 2.5em;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 1024px) {
-    header {
-        font-size: 1.5em;
-    }
-
-    .carousel .list .item .content {
-        top: 15%;
-        padding-right: 10%;
-        font-size: 1em;
-    }
-
-    .carousel .list .item .title {
-        font-size: 2.5em;
-    }
-
-    .carousel .list .item .topic {
-        font-size: 3.5em;
-    }
-
-    .thumbnail .item {
-        width: 100px;
-        height: 140px;
-    }
-
-    .arrows button {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    header {
-        font-size: 1.2em;
-        padding: 0 2%;
-    }
-
-    .carousel .list .item .content {
-        padding-right: 5%;
-        font-size: 0.9em;
-    }
-
-    .carousel .list .item .title {
-        font-size: 2em;
-    }
-
-    .carousel .list .item .topic {
-        font-size: 2.5em;
-    }
-
-    .thumbnail {
-        gap: 5px;
-    }
-
-    .thumbnail .item {
-        width: 80px;
-        height: 120px;
-    }
-
-    .arrows button {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .carousel .list .item .content {
-        top: 10%;
-        padding-right: 0;
-        font-size: 0.8em;
-    }
-
-    .carousel .list .item .title {
-        font-size: 1.5em;
-    }
-
-    .carousel .list .item .topic {
-        font-size: 2em;
-    }
-
-    .thumbnail .item {
-        width: 60px;
-        height: 100px;
-    }
-
-    .arrows button {
-        width: 25px;
-        height: 25px;
-    }
+  .home-content h3 {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
 }
